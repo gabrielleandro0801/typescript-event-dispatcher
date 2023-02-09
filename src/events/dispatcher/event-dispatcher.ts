@@ -1,6 +1,6 @@
-import { EventHandlerInterface } from "../event-handler.interface";
-import { EventInterface } from "../event.interface";
-import { EventDispatcherInterface } from "./event-dispatcher.interface";
+import { EventHandlerInterface } from "../interfaces/event-handler.interface";
+import { EventInterface } from "../interfaces/event.interface";
+import { EventDispatcherInterface } from "../interfaces/event-dispatcher.interface";
 
 export class EventDispatcher implements EventDispatcherInterface {
     private eventHandlers: { [eventName: string]: EventHandlerInterface[] } = {};

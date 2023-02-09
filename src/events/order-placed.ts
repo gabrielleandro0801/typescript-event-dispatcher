@@ -1,4 +1,4 @@
-import { EventInterface } from "../event.interface";
+import { EventInterface } from "./interfaces/event.interface";
 
 export class OrderPlacedEvent implements EventInterface {
     dateTimeOccured: Date;

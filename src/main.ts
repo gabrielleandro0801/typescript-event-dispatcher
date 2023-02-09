@@ -1,13 +1,18 @@
-import { EventHandlerInterface } from "./event-handler.interface";
-import { EventInterface } from "./event.interface";
-import { EventDispatcher } from "./events/event-dispatcher";
+import { EventHandlerInterface } from "./events/interfaces/event-handler.interface";
+import { EventInterface } from "./events/interfaces/event.interface";
+import { EventDispatcher } from "./events/dispatcher/event-dispatcher";
 import { SendMessageToRabbitMQHandler } from "./events/handlers/send-message-to-rabbitmq.handler";
 import { OrderPlacedEvent } from "./events/order-placed";
+import { SendMessageToKafkaHandler } from "./events/handlers/send-message-to-kafka.handler";
 
 function main(): void {
     const eventDispatcher: EventDispatcher = new EventDispatcher();
-    const eventHandler: EventHandlerInterface = new SendMessageToRabbitMQHandler();
-    eventDispatcher.register("OrderPlacedEvent", eventHandler);
+    
+    const sendMessageToRabbitMQHandler: EventHandlerInterface = new SendMessageToRabbitMQHandler();
+    const sendMessageToKafkaHandler: EventHandlerInterface = new SendMessageToKafkaHandler();
+    
+    eventDispatcher.register("OrderPlacedEvent", sendMessageToRabbitMQHandler);
+    eventDispatcher.register("OrderPlacedEvent", sendMessageToKafkaHandler);
 
     const event: EventInterface = new OrderPlacedEvent({
         orderId: "123",
@@ -16,6 +21,7 @@ function main(): void {
         quantity: 1,
         total: 100,
     });
+
     eventDispatcher.notify(event);
 }
 
