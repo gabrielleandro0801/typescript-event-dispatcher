@@ -7,10 +7,10 @@ import { SendMessageToKafkaHandler } from "./events/handlers/send-message-to-kaf
 
 function main(): void {
     const eventDispatcher: EventDispatcher = new EventDispatcher();
-    
+
     const sendMessageToRabbitMQHandler: EventHandlerInterface = new SendMessageToRabbitMQHandler();
     const sendMessageToKafkaHandler: EventHandlerInterface = new SendMessageToKafkaHandler();
-    
+
     eventDispatcher.register("OrderPlacedEvent", sendMessageToRabbitMQHandler);
     eventDispatcher.register("OrderPlacedEvent", sendMessageToKafkaHandler);
 
