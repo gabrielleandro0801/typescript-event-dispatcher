@@ -1,0 +1,26 @@
+{
+  "name": "event-dispatcher-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielleandro0801/event-dispatcher-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielleandro0801/event-dispatcher-typescript/issues"
+  },
+  "homepage": "https://github.com/gabrielleandro0801/event-dispatcher-typescript#readme",
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.5"
+  }
+}
