@@ -1,4 +1,4 @@
-<h1 align="center">Event Dispatcher Typescript</h1>
+<h1 align="center">Typescript Event Dispatcher</h1>
 
 ## Installing the dependencies
 ``` bash
